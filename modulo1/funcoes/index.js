@@ -181,7 +181,39 @@
 
 
 
+function fora (x , y){
 
+function dentro (){
+let = z;
+
+
+
+}
+
+return z;
+
+
+}
+
+
+console.log(fora (4,4))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
 
 
 
