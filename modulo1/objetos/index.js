@@ -46,19 +46,17 @@
 //         escreva uma função que recebe como entrada um objeto e imprime uma mensagem no modelo abaixo:
 
 function recebeObjeto(obj) {
-    console.log(
-      `Eu sou ${obj.nome}, mas pode me chamar de : ${obj.apelidos[0]}, ${obj.apelidos[1]} ou ${obj.apelidos[2]}`
-    );
-  }
+  console.log(
+    `Eu sou ${obj.nome}, mas pode me chamar de : ${obj.apelidos[0]}, ${obj.apelidos[1]} ou ${obj.apelidos[2]}`
+  );
+}
 
 const pessoa = {
   nome: " Fernanda",
   apelidos: ["fer", "Mozi", "Mozzila"],
 };
 
-
 recebeObjeto(pessoa);
-
 
 // b) Agora, usando o operador spread, crie um novo objeto mantendo o valor da propriedade nome,
 // mas com uma nova lista de três apelidos.
@@ -69,7 +67,7 @@ const novaPessoa = {
   apelidos: ["Fofinha", "Nene", "Fê"],
 };
 
-recebeObjeto(novaPessoa)
+recebeObjeto(novaPessoa);
 
 // 2. Resolva os passos a seguir:
 
@@ -142,17 +140,16 @@ console.log(carrinho);
 
 //Crie um função que pergunte ao usuário seu nome, sua idade e sua profissão
 // e depois imprima no console um objeto com essas propriedades.
-function perguntaUsuario () {
-
-    const nome = prompt ("Qual o seu nome?")
-    const idade = +prompt ("Qual a sua idade?")
-    const profissao = prompt ("Qual a sua profissão?")
-    console.log (nome, idade, profissao)
-   console.log("Tipo nome : ",typeof nome) 
-   console.log("tipo idade" , typeof idade)
-   console.log ("tipo profissão:", typeof profissao)
+function perguntaUsuario() {
+  const nome = prompt("Qual o seu nome?");
+  const idade = +prompt("Qual a sua idade?");
+  const profissao = prompt("Qual a sua profissão?");
+  console.log(nome, idade, profissao);
+  console.log("Tipo nome : ", typeof nome);
+  console.log("tipo idade", typeof idade);
+  console.log("tipo profissão:", typeof profissao);
 }
 
-perguntaUsuario()
+perguntaUsuario();
 
 //  Depois de imprimir o novo objeto, imprima também o tipo dele para garantir que é um objeto.
