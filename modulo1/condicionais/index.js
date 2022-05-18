@@ -140,37 +140,101 @@
 // jogos de um estádio de futebol. Para esta compra, o usuário deve fornecer algumas informações:
 
 const nomeCompleto = prompt("Qual o sei nome completo?");
-const tipoDeJogo = prompt(
+const tipoJogo = prompt(
   "Qual o tipo de Jogo? IN indica internacional; e DO indica doméstico;"
 ).toUpperCase();
-const etapaDoJogo = prompt(
+const etapaJogo = prompt(
   "Qual a etapa do jogo? SF indica semi-final; DT indica decisão de terceiro lugar; e FI indica fina"
 ).toUpperCase();
 const categoria = +prompt("Qual a categoria? pode ser as opções 1, 2, 3 ou 4");
-const quantidadeDeIngressos = +prompt("Qual a quantidade de ingressos?");
+const quantidadeIngressos = +prompt("Qual a quantidade de ingressos?");
 
-const resultado = (
-  nomeCompleto,
-  tipoDeJogo,
-  etapaDoJogo,
-  categoria,
-  quantidadeDeIngressos
-) => {
-  switch (resultado) {
-    case "IN":
-      return "Tipo Internacional";
-    case "DO":
-      return "Tipo Doméstico";
+const calcularValorIngresso = () => {
+  const valorDolar = 4.1;
+  const tabelaPrecos = {
+    semifinal: {
+      categoria1: 1320,
+      categoria2: 880,
+      categoria3: 550,
+      categoria4: 220,
+    },
+    decisaoTerceiroLugar: {
+      categoria1: 660,
+      categoria2: 440,
+      categoria3: 330,
+      categoria4: 170,
+    },
+    final: {
+      categoria1: 1980,
+      categoria2: 1320,
+      categoria3: 880,
+      categoria4: 330,
+    },
+  };
+
+  const codigoEtapaJogo = obterEtapaJogoCodigo();
+  const tabelaPrecoSelecionado = tabelaPrecos[codigoEtapaJogo];
+  let valorIngresso = tabelaPrecoSelecionado[`categoria${categoria}`];
+  let valorTotal = valorIngresso * quantidadeIngressos;
+
+  if (tipoJogo === "IN") {
+    valorTotal = valorTotal * valorDolar;
+    valorIngresso = valorIngresso * valorDolar;
+  }
+
+  return {
+    valorTotal,
+    valorIngresso,
+  };
+};
+
+const obterEtapaJogoCodigo = () => {
+  switch (etapaJogo) {
     case "SF":
-      return "";
+      return "semifinal";
+    case "DT":
+      return "decisaoTerceiroLugar";
+    default:
+      return "final";
   }
 };
-console.log(
-  resultado(
-    nomeCompleto,
-    tipoDeJogo,
-    etapaDoJogo,
-    categoria,
-    quantidadeDeIngressos
-  )
-);
+
+const valor = calcularValorIngresso();
+const printarNotaFiscalJogo = (valorJogo) => {
+  let tipoJogoTexto = "Nacional";
+  let etapaJogoTexto = "Final";
+  let unidadeMonetario = "R$";
+
+  if (tipoJogo === "IN") {
+    tipoJogoTexto = "Internacional";
+    unidadeMonetario = "US$";
+  }
+
+  if (etapaJogo === "SF") {
+    etapaJogoTexto = "Semi Final";
+  }
+
+  if (etapaJogo === "DT") {
+    etapaJogoTexto = "Decisão de terceiro lugar";
+  }
+
+  let ingressosTexto = "ingresso";
+
+  if (quantidadeIngressos > 1) {
+    ingressosTexto = "ingressos";
+  }
+
+  console.log(`
+    ---Dados da compra--- 
+    Nome do cliente:  ${nomeCompleto}
+    Tipo do jogo:  ${tipoJogoTexto} 
+    Etapa do jogo:  ${etapaJogoTexto} 
+    Categoria:  ${categoria} 
+    Quantidade de Ingressos:  ${quantidadeIngressos} ${ingressosTexto}
+    ---Valores--- 
+    Valor do ingresso:  ${unidadeMonetario} ${valorJogo.valorIngresso}
+    Valor total:  ${unidadeMonetario} ${valorJogo.valorTotal}
+    `);
+};
+
+printarNotaFiscalJogo(valor);
