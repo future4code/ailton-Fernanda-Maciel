@@ -46,3 +46,5 @@ if (somaPontosComputador > somaPontosUsuario) {
 } else {
   console.log("Empataram!!");
 }
+
+///// SOFRIDO....
