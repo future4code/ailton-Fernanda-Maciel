@@ -9,75 +9,40 @@
 //  * 
  * 
  * 
-// //  */
-console.log("Boas vindas ao jogo de Blackjack!"); // 1
+// // //  */
 
-const retornaPontuacaoJogador = (jogador) => {
-  return {
-    cartas: `${jogador[0].texto}, ${jogador[1].texto}`,
-    pontuacao: jogador[0].valor + jogador[1].valor,
-  };
-};
+console.log("Boas vindas ao jogo de Blackjack"); // 1
 
-const printarMensagemJogador = (jogadorInfo, jogadorMensagem) => {
-  console.log(
-    `${jogadorMensagem} - cartas: ${jogadorInfo.cartas} - pontuação ${jogadorInfo.pontuacao}`
-  );
-};
-
-if (confirm("Quer iniciar uma nova rodada?")) {
-  //2
-  // Inicia nova rodada // 4
-  const usuario = [];
-  const computador = [];
-
-  usuario.push(comprarCarta());
-  usuario.push(comprarCarta());
-
-  computador.push(comprarCarta());
-  computador.push(comprarCarta());
-
-  const usuarioInfo = retornaPontuacaoJogador(usuario);
-  const computadorInfo = retornaPontuacaoJogador(computador);
-
-  printarMensagemJogador(usuarioInfo, "Usuário");
-  printarMensagemJogador(computadorInfo, "Computador");
-
-  if (computadorInfo.pontuacao > usuarioInfo.pontuacao) {
-    console.log("Vencedor computador");
-  } else if (computadorInfo.pontuacao === usuarioInfo.pontuacao) {
-    console.log("Vocês empataram");
-  } else {
-    console.log("Vencedor usuário");
-  }
+if (confirm("Quer iniciar uma rodada?")) {
 } else {
-  console.log("O jogo acabou"); //3
+  console.log("O jogo acabou"); // 3
 }
 
-//
-///////////////////////eu
+const usuario = []; // COMO SE ESTIVESSE AQUI DENTRO AS CARTAS COMPRADAS
+const computador = [];
 
-// console.log("Boas vindas ao jogo de Blackjack"); // 1
+usuario.push(comprarCarta()); // 2vezes compra a carta
+usuario.push(comprarCarta());
+computador.push(comprarCarta());
+computador.push(comprarCarta());
 
-// if (confirm("Quer iniciar uma rodada?")) {
-//   // 4
-// } else {
-//   console.log("O jogo acabou"); // 3
-// }
+const somaPontosUsuario = usuario[0].valor + usuario[1].valor;
+const somaPontosComputador = computador[0].valor + computador[1].valor;
 
-// const usuario = []; // COMO SE ESTIVESSE AQUI DENTRO AS CARTAS COMPRADAS
-// const computador = [];
+console.log(
+  `carta do usuario: ${usuario[0].texto} ${usuario[1].texto}, pontos usuario : ${somaPontosUsuario}`
+);
+// console.log(`pontos usuario : ${somaPontosUsuario}`);
+console.log(
+  `carta Computador: ${computador[0].texto}, ${computador[1].texto}, pontos Computador: ${somaPontosComputador}`
+);
 
-// usuario.push(comprarCarta); // 2vezes compra a carta
-// usuario.push(comprarCarta);
-// computador.push(comprarCarta);
-// computador.push(comprarCarta);
-
-// const carta = comprarCarta();
-// // Sorteia uma carta. Por exemplo, o rei de ouros
-
-// console.log(carta.texto);
-// // imprime o texto da carta. Nesse caso: "K♦️"
-
-// console.log(carta.valor);
-// // imprime o valor da carta (um número). Nesse caso: 10)
+const carta = comprarCarta();
+// Sorteia uma carta. Por exemplo, o rei de ouros
+if (somaPontosComputador > somaPontosUsuario) {
+  console.log("Computador Venceu!!");
+} else if (somaPontosUsuario < somaPontosComputador) {
+  console.log("Usuario Venceu!!!");
+} else {
+  console.log("Empataram!!");
+}
