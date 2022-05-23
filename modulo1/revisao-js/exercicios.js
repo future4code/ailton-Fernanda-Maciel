@@ -25,95 +25,125 @@ function retornaNumerosPares(array) {
 }
 
 // EXERCÍCIO 05
-function retornaNumerosParesElevadosADois(array) {}
+function retornaNumerosParesElevadosADois(array) {
+  return retornaNumerosPares(array).map((numero) => numero * numero);
+}
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-  let i = 0;
-  let maior = Infinity;
-  while (i < array.length) {
-    if (array[i] > maior) {
-      maior = array[i];
+  let maiorNumero = 0;
+
+  for (let numero of array) {
+    if (maiorNumero < numero) {
+      maiorNumero = numero;
     }
-    i++;
   }
-  console.log(maior);
+
+  return maiorNumero;
 }
 
 // EXERCÍCIO 07
-function retornaObjetoEntreDoisNumeros(num1, num2) {}
+function retornaObjetoEntreDoisNumeros(num1, num2) {
+  let maiorNumero = num1;
+  let menorNumero = num2;
+
+  /**
+   * exemplo 01:
+   * num1 = 2
+   * num2 = 3
+   *
+   * examplo 02
+   * num1 = 5
+   * num2 = 2
+   */
+  if (num1 < num2) {
+    maiorNumero = num2;
+    menorNumero = num1;
+  }
+
+  return {
+    maiorNumero,
+    maiorDivisivelPorMenor: maiorNumero % menorNumero === 0,
+    diferenca: maiorNumero - menorNumero,
+  };
+}
 
 // EXERCÍCIO 08
-function retornaNPrimeirosPares(n) {}
+function retornaNPrimeirosPares(n) {
+  const retorno = [];
+  for (let i = 0; i < n; i++) {
+    retorno.push(i * 2);
+  }
+
+  return retorno;
+}
 
 // EXERCÍCIO 09
-function classificaTriangulo(ladoA, ladoB, ladoC) {}
+function classificaTriangulo(ladoA, ladoB, ladoC) {
+  if (ladoA === ladoB && ladoB === ladoC && ladoC === ladoA) {
+    return "Equilátero";
+  }
+
+  if (ladoA === ladoB || ladoB === ladoC || ladoC === ladoA) {
+    return "Isósceles";
+  }
+
+  return "Escaleno";
+}
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-  let priMaior = Infinity;
-  let SegMaior = Infinity;
-  let priMenor = +Infinity;
-  let segMenor = Infinity;
-
-  for (let number of array) {
-    if (number > priMaior) {
-      priMaior = number;
-    }
-  }
-  if (number < priMaior) {
-    priMenor = number;
-  }
-  for (let number of array) {
-    if (number > SegMaior) {
-      SegMaior = number;
-    }
-  }
-  if (number < priMaior) {
-    priMenor = number;
-  }
+  const arrayOrdenado = retornaArrayOrdenado(array);
+  return [arrayOrdenado[array.length - 2], arrayOrdenado[1]];
 }
 
 // EXERCÍCIO 11
-function retornaChamadaDeFilme(filme) {}
+function retornaChamadaDeFilme(filme) {
+  return `Venha assistir ao filme ${filme.nome}, de ${
+    filme.ano
+  }, dirigido por ${filme.diretor} e estrelado por ${filme.atores.join(", ")}.`;
+}
 
 // EXERCÍCIO 12
-function retornaPessoaAnonimizada(pessoa) {}
+function retornaPessoaAnonimizada(pessoa) {
+  return {
+    ...pessoa,
+    nome: "ANÔNIMO",
+  };
+}
 
 // EXERCÍCIO 13A
-function retornaPessoasAutorizadas(pessoas) {}
+function retornaPessoasAutorizadas(pessoas) {
+  return pessoas.filter(
+    (pessoa) => pessoa.altura >= 1.5 && pessoa.idade > 14 && pessoa.idade < 60
+  );
+}
 
 // EXERCÍCIO 13B
-function retornaPessoasNaoAutorizadas(pessoas) {}
+function retornaPessoasNaoAutorizadas(pessoas) {
+  return pessoas.filter(
+    (pessoa) => pessoa.altura < 1.5 || pessoa.idade <= 14 || pessoa.idade > 60
+  );
+}
 
 // EXERCÍCIO 14
-function retornaContasComSaldoAtualizado(contas) {}
+function retornaContasComSaldoAtualizado(contas) {
+  return contas.map((conta) => {
+    let totalCompras = 0;
+    for (let compra of conta.compras) {
+      totalCompras = totalCompras + compra;
+    }
+
+    return {
+      cliente: conta.cliente,
+      saldoTotal: conta.saldoTotal - totalCompras,
+      compras: [],
+    };
+  });
+}
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {}
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {}
-
-// const numeros = [11,15,18,14,12,13]
-
-// // let i  = 0
-// let maior = Infinity
-// // while (i< numeros.length){
-// // if (numeros [i] > maior){
-// //   maior = numeros [i]
-// // }
-// //   i++
-
-// // }
-// // for (let i = 0; i>numeros.length ; i++){
-
-// //   if (numeros [i] > maior){
-// //     maior = numeros [i]
-// //   }
-
-// for (let numero of numeros)){
-//   if (numero >maior){
-//     maior = numero
-//   }
-// }
