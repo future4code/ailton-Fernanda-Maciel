@@ -13,16 +13,32 @@ function retornaArrayInvertido(array) {
 }
 
 // EXERCÍCIO 03
-function retornaArrayOrdenado(array) {}
+
+function retornaArrayOrdenado(array) {
+  return array.sort((a, b) => a - b);
+}
 
 // EXERCÍCIO 04
-function retornaNumerosPares(array) {}
+
+function retornaNumerosPares(array) {
+  return array.filter((num) => num % 2 === 0);
+}
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {}
 
 // EXERCÍCIO 06
-function retornaMaiorNumero(array) {}
+function retornaMaiorNumero(array) {
+  let i = 0;
+  let maior = Infinity;
+  while (i < array.length) {
+    if (array[i] > maior) {
+      maior = array[i];
+    }
+    i++;
+  }
+  console.log(maior);
+}
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {}
@@ -34,7 +50,29 @@ function retornaNPrimeirosPares(n) {}
 function classificaTriangulo(ladoA, ladoB, ladoC) {}
 
 // EXERCÍCIO 10
-function retornaSegundoMaiorESegundoMenor(array) {}
+function retornaSegundoMaiorESegundoMenor(array) {
+  let priMaior = Infinity;
+  let SegMaior = Infinity;
+  let priMenor = +Infinity;
+  let segMenor = Infinity;
+
+  for (let number of array) {
+    if (number > priMaior) {
+      priMaior = number;
+    }
+  }
+  if (number < priMaior) {
+    priMenor = number;
+  }
+  for (let number of array) {
+    if (number > SegMaior) {
+      SegMaior = number;
+    }
+  }
+  if (number < priMaior) {
+    priMenor = number;
+  }
+}
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {}
@@ -56,3 +94,26 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {}
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {}
+
+// const numeros = [11,15,18,14,12,13]
+
+// // let i  = 0
+// let maior = Infinity
+// // while (i< numeros.length){
+// // if (numeros [i] > maior){
+// //   maior = numeros [i]
+// // }
+// //   i++
+
+// // }
+// // for (let i = 0; i>numeros.length ; i++){
+
+// //   if (numeros [i] > maior){
+// //     maior = numeros [i]
+// //   }
+
+// for (let numero of numeros)){
+//   if (numero >maior){
+//     maior = numero
+//   }
+// }
