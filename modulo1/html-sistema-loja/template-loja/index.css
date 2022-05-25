@@ -1,0 +1,119 @@
+h1{
+
+    color: rgb(221, 8, 107);
+     text-align: center;
+ 
+}
+
+h2{
+
+    color: blueviolet;
+   
+}
+
+td{
+
+    background-color: rgb(247, 166, 211);
+    border:black
+    text-align: center;
+}
+
+tr{
+
+    color:rgb(233, 10, 121);
+}
+
+.fundo-rosa{
+
+    background-color: rgba(243, 167, 250, 0.979);
+    display: inline;
+
+   
+  
+}
+.fundo-verde-agua{
+
+    background-color: #00ffff;
+    display: inline;
+  
+}
+
+
+
+main{
+    background-color: rgb(212, 196, 208);
+    padding:50 px;
+    padding-top: -5in;
+    text-align:center;
+    
+
+
+}
+
+
+
+header{
+
+    background-color: rgb(214, 218, 216);
+
+    
+}
+
+.vista-se{
+    color: black;
+text-align: center;
+  
+
+}
+
+.coracao{
+
+    color: red;
+}
+footer{
+
+    background-color: rgb(172, 172, 172);
+    padding: 0;
+    margin-top: 200px;
+    text-align: center;
+   
+}
+
+head{
+
+    background-color: rgb(214, 218, 216);
+}
+
+
+button{
+
+    color: blueviolet;
+    border-style:outset;
+    border-color: rgb(38, 226, 226);
+    
+
+}
+button:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
+  } 
+
+  table{
+    border-style:dashed;
+   
+
+  }
+  body{
+
+    background-color: rgb(218, 214, 217);
+  }
+  nav{
+    text-align: center;
+   margin: 30 px;
+
+  }
+  nav :hover{
+
+    background-color:rgb(149, 149, 250);
+    color: white;
+  }
