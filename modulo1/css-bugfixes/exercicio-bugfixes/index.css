@@ -22,7 +22,7 @@ input {
 }
 
 button:focus {
-    color: white;
+    color: rgb(214, 22, 80);
 }
 
 img {
@@ -81,8 +81,9 @@ div img {
 }
 
 #container-de-descricao>ol {
-    padding: 15px 0px;
-   
+    padding: 16px;
+    text-align: center;
+   list-style-position: inside;
 }
 
 #container-para-comprar {
@@ -130,6 +131,22 @@ td button {
     color: black;
 }
 
+
+
+
+td button :active{
+  
+    color: rgb(255, 248, 248);
+
+
+}
+td button:hover{
+
+background-color: rgb(184, 6, 184);
+
+}                                
+
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
@@ -137,13 +154,13 @@ td button {
 
 
 #back-button {
-    background-color: white;
+    background-color: rgba(241, 226, 16, 0.808);
     width: 100px;
     height: 20px;
     border: 1px solid black;
     border-radius: 5px;
     font-size: 10px;
-    color: black;
+    color: rgb(3, 3, 3);
 }
 
 #back-button:hover {
