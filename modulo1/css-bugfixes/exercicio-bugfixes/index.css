@@ -62,6 +62,10 @@ div img {
 
 .icone {
     height: 15px;
+    width: auto;
+   
+    background-color: white;
+  
 }
 
 
@@ -105,8 +109,18 @@ div:last-child {
 
 table {
     width: 60%;
+ 
     
 }
+
+td{
+
+    border-bottom: double
+}
+
+
+
+
 
 td button {
     background-color: #fadf63;
