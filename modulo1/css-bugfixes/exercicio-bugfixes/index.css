@@ -105,6 +105,7 @@ div:last-child {
 
 table {
     width: 60%;
+    
 }
 
 td button {
@@ -135,3 +136,7 @@ td button {
     background-color: #635a3d
 }
 
+div > table{
+text-align: center;
+  
+}
