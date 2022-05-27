@@ -1,0 +1,64 @@
+
+.portfolio{
+
+    text-align: center;
+    background-color: aliceblue;
+
+}
+
+
+.sobre-mim{
+
+text-align: center;
+
+
+
+}
+.projetos{
+    text-align: center;}
+
+
+    .contato{
+
+        text-align: center;
+    }
+
+.habilidades{
+
+    text-align: center;   
+}
+
+
+
+
+header{
+
+    background-color: aliceblue;
+
+   
+}
+
+nav{
+    text-align: center;
+    background-color: aliceblue;
+
+    
+}
+
+nav :hover{
+
+    background-color:rgb(208, 143, 224);
+    color: black;
+  }
+
+
+
+footer{
+    
+ background-color: rgb(230, 202, 226);
+ margin-top: 300px;
+ padding: 0;
+ text-align: center;
+
+}
+
