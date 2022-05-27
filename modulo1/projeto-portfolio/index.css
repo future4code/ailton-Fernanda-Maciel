@@ -1,33 +1,63 @@
 
+
+
 .portfolio{
 
     text-align: center;
-    background-color: aliceblue;
+    background-color: rgb(230, 202, 226);
 
 }
 
 
 .sobre-mim{
-
 text-align: center;
 
 
 
 }
 .projetos{
-    text-align: center;}
+    text-align: center;
+    background-color: rgb(230, 202, 226);}
+    
 
 
     .contato{
 
         text-align: center;
-    }
+        background-color: rgb(230, 202, 226);}
+    
 
 .habilidades{
 
     text-align: center;   
+    background-color: rgb(230, 202, 226);}
+    
+
+
+
+.habilidade1{
+     margin-left: 500px;
 }
 
+.habilidade2{
+    margin-left: 500px;
+    
+}
+
+.meu-avatar{
+margin-left: 500px;
+
+}
+
+ol{
+text-align: center;
+
+}
+
+body{
+    
+    background-color:white;
+}
 
 
 
@@ -40,7 +70,8 @@ header{
 
 nav{
     text-align: center;
-    background-color: aliceblue;
+    background-color: white;
+    
 
     
 }
@@ -56,9 +87,29 @@ nav :hover{
 footer{
     
  background-color: rgb(230, 202, 226);
- margin-top: 300px;
+ margin-top:80px;
  padding: 0;
  text-align: center;
 
 }
+/* formulario da pagina de contato // */
+form{
 
+    text-align: center;
+   
+   
+}
+
+
+
+
+button{
+
+    color:rgb(172, 27, 94)
+}
+
+button :hover{
+
+    background-color: rgb(164, 39, 202);
+    color: black;
+}
