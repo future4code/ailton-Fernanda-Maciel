@@ -49,8 +49,22 @@ margin-left: 500px;
 
 }
 
-ol{
+.loja{
+margin-left:80px;
+
+}
+.loja1{
+
+    margin-left: 30px;  
+}
+
+/* ol{
 text-align: center;
+
+} */
+
+li{
+   margin-left: 500px;
 
 }
 
@@ -108,8 +122,3 @@ button{
     color:rgb(172, 27, 94)
 }
 
-button :hover{
-
-    background-color: rgb(164, 39, 202);
-    color: black;
-}
