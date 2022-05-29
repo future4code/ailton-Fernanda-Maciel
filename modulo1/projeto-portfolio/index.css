@@ -56,7 +56,20 @@ margin-left:80px;
 .loja1{
 
     margin-left: 30px;  
+    color: rgb(9, 6, 177);
 }
+
+.projeto{
+
+    margin-left:80px;
+}
+
+.projeto1{
+    margin-left: 30px;  
+    color: rgb(9, 6, 177);
+
+}
+
 
 /* ol{
 text-align: center;
