@@ -1,0 +1,126 @@
+/* //cabeça */
+*{
+margin:0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+
+#container{
+
+    display: flex;
+    flex-direction:column;
+    height: 100vh;
+   
+
+}
+header{
+
+border: 1px solid black;
+display: flex;
+height: 8vh;
+align-items: center;
+justify-content: space-between;
+padding: 0 8px;
+background-color: mediumvioletred;
+
+}
+
+main{
+
+    border: 1px solid black;
+  
+    flex-grow: 1vh;
+    display: flex;
+   
+    
+}
+
+section{
+
+    border: 1px solid black;
+    flex-grow:4 ;  
+    flex-direction: column;
+}
+
+
+.card{
+
+    border: 2px solid black;
+    width: 208px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.section2{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+.section1{
+    flex-direction: column;
+    flex-grow:4 ;  
+}
+
+/* div{
+
+    border-radius: 8px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+} */
+
+
+footer{
+
+    border: 1px solid black;
+    background-color: mediumvioletred;
+    height: 8vh;
+    
+
+    
+}
+
+
+
+
+  
+
+/* .item1{
+
+    background-color: #f2d0e0;
+    flex-grow: 1;
+    height: 100vh;
+
+}
+.item2{
+
+    flex-grow: 4;  
+    height: 100vh;
+
+
+} */
+/* 
+.confeitaria{
+
+    margin-right: 200vh;
+}
+/* .bolos-deliciosos{
+
+    text-align: center; */
+  
+.bolos-deliciosos{
+
+    text-align: center;
+}
+.confeitaria{
+
+    margin-right: 200vh;
+}
