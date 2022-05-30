@@ -1,126 +1,109 @@
 /* //cabeça */
-*{
-margin:0;
-padding: 0;
-box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-
-#container{
-
-    display: flex;
-    flex-direction:column;
-    height: 100vh;
-   
-
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
-header{
-
-border: 1px solid black;
-display: flex;
-height: 8vh;
-align-items: center;
-justify-content: space-between;
-padding: 0 8px;
-background-color: mediumvioletred;
-
+header {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: mediumvioletred;
 }
 
-main{
-
-    border: 1px solid black;
-  
-    flex-grow: 1vh;
-    display: flex;
-   
-    
+header > button {
+  margin-right: 10px;
+  padding: 4px 10px;
 }
 
-section{
-
-    border: 1px solid black;
-    flex-grow:4 ;  
-    flex-direction: column;
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-
-.card{
-
-    border: 2px solid black;
-    width: 208px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+.logo p {
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 1.5em;
 }
 
-.section2{
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-   
-}
-.section1{
-    flex-direction: column;
-    flex-grow:4 ;  
+.menu {
+  background-color: #f2d0e0;
+  padding: 10px;
+  width: 20%;
 }
 
-/* div{
-
-    border-radius: 8px;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-} */
-
-
-footer{
-
-    border: 1px solid black;
-    background-color: mediumvioletred;
-    height: 8vh;
-    
-
-    
+.item-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-
-
-
-  
-
-/* .item1{
-
-    background-color: #f2d0e0;
-    flex-grow: 1;
-    height: 100vh;
-
+.item-menu-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-.item2{
 
-    flex-grow: 4;  
-    height: 100vh;
-
-
-} */
-/* 
-.confeitaria{
-
-    margin-right: 200vh;
+.item-menu-container > p {
+  margin-left: 10px;
 }
-/* .bolos-deliciosos{
 
-    text-align: center; */
-  
-.bolos-deliciosos{
+main {
+  border: 1px solid black;
 
-    text-align: center;
+  flex-grow: 1vh;
+  display: flex;
 }
-.confeitaria{
 
-    margin-right: 200vh;
+section {
+  border: 1px solid black;
+  flex-grow: 4;
+  flex-direction: column;
+}
+
+.card {
+  width: 208px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-shadow: 2px 9px 19px 0px rgba(0, 0, 0, 0.62);
+  box-shadow: 2px 9px 19px 0px rgba(0, 0, 0, 0.62);
+}
+
+footer {
+  border: 1px solid black;
+  background-color: mediumvioletred;
+  height: 8vh;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.conteudo {
+  padding: 10px;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.descricao {
+  padding: 10px;
+  text-align: center;
+}
+
+.descricao > h3 {
+  margin-bottom: 10px;
 }
