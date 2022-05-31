@@ -1,0 +1,76 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 10vh 80vh 10vh;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+header {
+  background-color: rgb(233, 106, 169);
+  border: 1px solid black;
+  grid-column: 1 / -1;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+input {
+  margin-right: 10px;
+}
+
+section {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.card {
+  border: 1px solid black;
+  display: flex;
+  width: 135px;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+.imagem-card {
+  width: 135px;
+  height: 200px;
+  border: 1px solid black;
+}
+main {
+  background-color: rgb(255, 230, 255);
+  border: 1px solid black;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-columns: 100px 1fr 1fr; */
+}
+
+.video1 {
+  margin-left: 430px;
+  margin-top: 100px;
+}
+
+.video2 {
+  margin-left: 400px;
+}
+
+footer {
+  background-color: rgb(233, 106, 169);
+  border: 1px solid black;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 8px;
+}
