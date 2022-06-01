@@ -45,9 +45,9 @@ section {
   text-align: center;
 }
 .imagem-card {
-  width: 135px;
-  height: 200px;
-  border: 1px solid black;
+  max-width: 100%;
+  min-width: 50%;
+  display: block;
 }
 main {
   background-color: rgb(255, 230, 255);
@@ -59,18 +59,50 @@ main {
 }
 
 .video1 {
-  margin-left: 430px;
-  margin-top: 100px;
+  margin-left: 30%;
+  margin-top: 6%;
+  align-items: center;
 }
 
 .video2 {
-  margin-left: 400px;
+  margin-left: 30%;
+  align-items: center;
 }
 
 footer {
   background-color: rgb(233, 106, 169);
-  border: 1px solid black;
+  border: 1fr solid black;
   grid-column: 1 / -1;
   text-align: center;
   padding: 8px;
+}
+
+/* Tablets e celulares */
+@media screen and (max-device-width: 1024px) {
+  section {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding: 10px;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .imagem-card {
+    width: 100%;
+  }
+
+  .video1,
+  .video2 {
+    margin: 0;
+    display: flex;
+  }
+
+  video {
+    width: 100%;
+    height: auto;
+  }
 }
