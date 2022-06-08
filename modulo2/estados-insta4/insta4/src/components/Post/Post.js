@@ -33,7 +33,7 @@ const UserPhoto = styled.img`
   height: 30px;
   width: 30px;
   margin-right: 10px;
-  border-radius: 50%;
+  border-radius: 40%;
 `;
 
 const PostPhoto = styled.img`
@@ -44,28 +44,29 @@ class Post extends React.Component {
   state = {
     curtido: false,
     numeroCurtidas: 0,
-    comentando: false,
+    comentando: true,
     numeroComentarios: 0,
   };
 
   onClickCurtida = () => {
+    console.log("curtiu");
     this.setState({
-      curtido: this.state.curtido,
+      numeroCurtidas: this.state.numeroCurtidas,
     });
-    if (this.state.curtido) {
+    if (this.state.numeroCurtidas) {
       this.setState({
-        numeroCurtidas: this.state.numeroCurtidas,
+        numeroCurtidas: this.state.numeroCurtidas - 1,
       });
     } else {
       this.setState({
-        numeroCurtidas: this.state.numeroCurtidas,
+        numeroCurtidas: this.state.numeroCurtidas + 1,
       });
     }
   };
 
   onClickComentario = () => {
     this.setState({
-      comentando: !this.state.comentando,
+      comentando: this.state.comentando,
     });
   };
 
