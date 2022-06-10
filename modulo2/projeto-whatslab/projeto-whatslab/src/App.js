@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 const Titulo = styled.h1`
   color: Green;
-  border: 1px solid black;
-  border-radius: 10px;
+  text-align: center;
 `;
 
 const MainContainer = styled.div`
@@ -21,10 +20,29 @@ const OutraDiv = styled.div`
 
   > input {
     margin: 1px;
-  }
-  > botton {
+    border-radius: auto;
+    text-align: center;
+    display: flex;
+
+    align-items: center;
+    width: 150px;
+    height: 30px;
+    margin-top: 0px;
+    display: flex;
+    background-color: #a2efa29e;
   }
 `;
+const Conversa = styled.p`
+  display: flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 400px;
+  height: 50px;
+  align-items: center;
+  text-align: center;
+  background-color: #a2efa29e;
+`;
+
 class ProjetoWhats extends React.Component {
   state = {
     informacoes: [
@@ -67,15 +85,15 @@ class ProjetoWhats extends React.Component {
   render() {
     const listaDeInformacoes = this.state.informacoes.map((pessoa) => {
       return (
-        <p>
+        <Conversa>
           {pessoa.nome} - {pessoa.mensagem}
-        </p>
+        </Conversa>
       );
     });
 
     return (
       <MainContainer>
-        <Titulo>WhatsLab</Titulo>
+        <Titulo>WhatsLab 🚀</Titulo>
         <OutraDiv>
           <input
             value={this.state.valorInputNome}
@@ -88,7 +106,7 @@ class ProjetoWhats extends React.Component {
             placeholder={"Mensagem"}
           />
 
-          <button onClick={this.adicionaNome}>Enviar</button>
+          <button onClick={this.adicionaNome}>💌</button>
         </OutraDiv>
         <div>{listaDeInformacoes}</div>
       </MainContainer>
