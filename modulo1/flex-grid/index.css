@@ -1,0 +1,109 @@
+/* //cabeça */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+header {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: mediumvioletred;
+}
+
+header > button {
+  margin-right: 10px;
+  padding: 4px 10px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo p {
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.menu {
+  background-color: #f2d0e0;
+  padding: 10px;
+  width: 20%;
+}
+
+.item-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.item-menu-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item-menu-container > p {
+  margin-left: 10px;
+}
+
+main {
+  border: 1px solid black;
+
+  flex-grow: 1vh;
+  display: flex;
+}
+
+section {
+  border: 1px solid black;
+  flex-grow: 4;
+  flex-direction: column;
+}
+
+.card {
+  width: 208px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-shadow: 2px 9px 19px 0px rgba(0, 0, 0, 0.62);
+  box-shadow: 2px 9px 19px 0px rgba(0, 0, 0, 0.62);
+}
+
+footer {
+  border: 1px solid black;
+  background-color: mediumvioletred;
+  height: 8vh;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.conteudo {
+  padding: 10px;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.descricao {
+  padding: 10px;
+  text-align: center;
+}
+
+.descricao > h3 {
+  margin-bottom: 10px;
+}
