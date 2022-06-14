@@ -1,0 +1,137 @@
+
+
+
+.portfolio{
+
+    text-align: center;
+    background-color: rgb(230, 202, 226);
+
+}
+
+
+.sobre-mim{
+text-align: center;
+
+
+
+}
+.projetos{
+    text-align: center;
+    background-color: rgb(230, 202, 226);}
+    
+
+
+    .contato{
+
+        text-align: center;
+        background-color: rgb(230, 202, 226);}
+    
+
+.habilidades{
+
+    text-align: center;   
+    background-color: rgb(230, 202, 226);}
+    
+
+
+
+.habilidade1{
+     margin-left: 500px;
+}
+
+.habilidade2{
+    margin-left: 500px;
+    
+}
+
+.meu-avatar{
+margin-left: 500px;
+
+}
+
+.loja{
+margin-left:80px;
+
+}
+.loja1{
+
+    margin-left: 30px;  
+    color: rgb(9, 6, 177);
+}
+
+.projeto{
+
+    margin-left:80px;
+}
+
+.projeto1{
+    margin-left: 30px;  
+    color: rgb(9, 6, 177);
+
+}
+
+
+/* ol{
+text-align: center;
+
+} */
+
+li{
+   margin-left: 500px;
+
+}
+
+body{
+    
+    background-color:white;
+}
+
+
+
+header{
+
+    background-color: aliceblue;
+
+   
+}
+
+nav{
+    text-align: center;
+    background-color: white;
+    
+
+    
+}
+
+nav :hover{
+
+    background-color:rgb(208, 143, 224);
+    color: black;
+  }
+
+
+
+footer{
+    
+ background-color: rgb(230, 202, 226);
+ margin-top:80px;
+ padding: 0;
+ text-align: center;
+
+}
+/* formulario da pagina de contato // */
+form{
+
+    text-align: center;
+   
+   
+}
+
+
+
+
+button{
+
+    color:rgb(172, 27, 94)
+}
+
