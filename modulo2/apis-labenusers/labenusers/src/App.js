@@ -1,5 +1,28 @@
 import React from "react";
 import axios from "axios";
+import styled from "styled-components";
+
+const Container = styled.main`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+
+  > bottom {
+    width: 100px;
+  }
+`;
+
+const Conteudo = styled.section`
+  background-color: pink;
+  display: flex;
+  flex-direction: row;
+`;
+
+const Titulo = styled.h1`
+  color: blue;
+  align-items: center;
+  text-align: center;
+`;
 
 class App extends React.Component {
   state = {
@@ -18,22 +41,21 @@ class App extends React.Component {
   componentDidMount() {
     this.getDados();
   }
-  getDados = () => {
-    axios
-      .get(
+  getDados = async () => {
+    try {
+      const resposta = await axios.get(
         "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
         {
           headers: {
             Authorization: "fernanda-maciel-ailton",
           },
         }
-      )
-      .then((response) => {
-        this.setState({ dados: response.data });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+      );
+
+      this.setState({ dados: resposta.data });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   mudapagina = () => {
     this.setState({
@@ -57,7 +79,6 @@ class App extends React.Component {
         }
       )
       .then((response) => {
-        console.log(response);
         this.getDados();
         alert("Usuario Criado");
       })
@@ -67,8 +88,8 @@ class App extends React.Component {
       });
   };
 
-  deletaUsuario = (id) => {
-    axios.delete(
+  deletaUsuario = async (id) => {
+    const resposta = await axios.delete(
       `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
       {
         headers: {
@@ -76,6 +97,8 @@ class App extends React.Component {
         },
       }
     );
+    alert("usuario excluido");
+    this.getDados();
   };
 
   render() {
@@ -83,15 +106,17 @@ class App extends React.Component {
       return (
         <div key={item.id}>
           <p>{item.name}</p>
-          <button onClick={this.deletaUsuario}> Deletar Usuario</button>
+          <button onClick={() => this.deletaUsuario(item.id)}>
+            Deletar Usuario
+          </button>
         </div>
       );
     });
     console.log(this.state.dados);
     console.log(arrayDados);
     return (
-      <main>
-        <h1>Olá Labenusers!!!</h1>
+      <Container>
+        <Titulo>Olá Labenusers!!!</Titulo>
         <button onClick={this.mudapagina}>Outra Pagina </button>
         {this.state.pagina === false && (
           <section>
@@ -116,7 +141,7 @@ class App extends React.Component {
             {arrayDados}
           </div>
         )}
-      </main>
+      </Container>
     );
   }
 }
