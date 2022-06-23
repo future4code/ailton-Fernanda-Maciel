@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default class CriarPlayList extends React.Component {
   state = {
-    playList: [],
+    playList: "",
   };
 
   novaPlayList = (e) => {
@@ -27,6 +27,7 @@ export default class CriarPlayList extends React.Component {
       )
       .then((res) => {
         console.log(res);
+        this.setState({ playList: "" });
         alert("PlayList cadastrada com sucesso :)");
       })
       .catch((err) => {
@@ -39,7 +40,7 @@ export default class CriarPlayList extends React.Component {
     return (
       <div>
         <label> Criar PlayList</label>
-        <input type={this.state.playList} onChange={this.novaPlayList} />
+        <input value={this.state.playList} onChange={this.novaPlayList} />
         <button onClick={this.creatPlayList}>Criar ♥</button>
         <p>{this.state.playList}</p>
       </div>
