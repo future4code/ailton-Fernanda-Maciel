@@ -1,7 +1,5 @@
 import React from "react";
-import Axios from "axios";
 import axios from "axios";
-
 export default class CriarPlayList extends React.Component {
   state = {
     playList: "",
@@ -11,7 +9,7 @@ export default class CriarPlayList extends React.Component {
     this.setState({ playList: e.target.value });
   };
 
-  creatPlayList = () => {
+  criarPlayList = () => {
     const body = {
       name: this.state.playList,
     };
@@ -28,6 +26,7 @@ export default class CriarPlayList extends React.Component {
       .then((res) => {
         console.log(res);
         this.setState({ playList: "" });
+        this.props.atualizarPlaylists();
         alert("PlayList cadastrada com sucesso :)");
       })
       .catch((err) => {
@@ -39,9 +38,9 @@ export default class CriarPlayList extends React.Component {
   render() {
     return (
       <div>
-        <label> Criar PlayList</label>
+        <label> </label>
         <input value={this.state.playList} onChange={this.novaPlayList} />
-        <button onClick={this.creatPlayList}>Criar ♥</button>
+        <button onClick={this.criarPlayList}>Criar ♥</button>
         <p>{this.state.playList}</p>
       </div>
     );
