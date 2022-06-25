@@ -1,8 +1,6 @@
 import React from "react";
-import CriarPlayList from "./Component/CriarPlayList";
-import PlayList from "./Component/Playlists";
-import AdcionarMusicas from "./Component/AdcionarMusicas";
-import PesquisarPlayList from "./Component/PesquisarPlayList";
+import AdicionaPlaylist from "./Component/Playlist/AdicionaPlaylist";
+import ListaPlaylists from "./Component/Playlist/ListaPlaylists";
 
 import axios from "axios";
 export default class App extends React.Component {
@@ -40,11 +38,11 @@ export default class App extends React.Component {
       <div>
         <h1> Labe♥Fer</h1>
         <h2>Criar Playlist♥</h2>
-        <CriarPlayList atualizarPlaylists={this.atualizarPlaylists} />
-        <PesquisarPlayList />
-        <PlayList data={this.state.playlists} />
-        <PesquisarPlayList />
-        <AdcionarMusicas />
+        <AdicionaPlaylist atualizarPlaylists={this.atualizarPlaylists} />
+        <ListaPlaylists
+          data={this.state.playlists}
+          atualizarPlaylists={this.atualizarPlaylists}
+        />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-export default class CriarPlayList extends React.Component {
+
+export default class AdicionaPlaylist extends React.Component {
   state = {
     playList: "",
   };
