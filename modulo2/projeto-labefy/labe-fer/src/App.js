@@ -1,11 +1,27 @@
 import React from "react";
 import AdicionaPlaylist from "./Component/Playlist/AdicionaPlaylist";
 import ListaPlaylists from "./Component/Playlist/ListaPlaylists";
+import ProcurarPlaylist from "./Component/Playlist/ProcurarPlaylist";
 
 import axios from "axios";
 export default class App extends React.Component {
   state = {
     playlists: [],
+  };
+
+  procurarPlaylist = async (palavraChave) => {
+    const resposta = await axios.get(
+      `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search?name=${palavraChave}`,
+      {
+        headers: {
+          Authorization: "fernanda-maciel-ailton",
+        },
+      }
+    );
+
+    console.log(resposta);
+
+    this.setState({ playlists: resposta.data.result.playlist });
   };
 
   atualizarPlaylists = async () => {
@@ -39,6 +55,7 @@ export default class App extends React.Component {
         <h1> Labe♥Fer</h1>
         <h2>Criar Playlist♥</h2>
         <AdicionaPlaylist atualizarPlaylists={this.atualizarPlaylists} />
+        <ProcurarPlaylist procurarPlaylist={this.procurarPlaylist} />
         <ListaPlaylists
           data={this.state.playlists}
           atualizarPlaylists={this.atualizarPlaylists}
