@@ -53,7 +53,7 @@ export default class App extends React.Component {
     return (
       <div>
         <h1> Labe♥Fer</h1>
-        <h2>Criar Playlist♥</h2>
+        <h2>♥♥♥Criar Playlist♥♥♥ </h2>
         <AdicionaPlaylist atualizarPlaylists={this.atualizarPlaylists} />
         <ProcurarPlaylist procurarPlaylist={this.procurarPlaylist} />
         <ListaPlaylists
