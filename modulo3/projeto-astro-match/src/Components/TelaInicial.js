@@ -5,7 +5,8 @@ const MiniContainer = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid lemonchiffon;
-  border-radius: 10px;
+  border-radius: 5px;
+  margin: 5px;
 
   > h1 {
     color: red;
@@ -19,6 +20,7 @@ const MiniFooter = styled.footer`
   margin: 5px;
   padding: 5px;
   border: 1px solid lemonchiffon;
+  border-radius: 5px;
 `;
 
 export default function TelaInicial() {

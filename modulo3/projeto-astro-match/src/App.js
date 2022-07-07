@@ -10,6 +10,8 @@ const ContainerHeader = styled.header`
   border-radius: 10px;
   margin-top: 10;
   background-color: pink;
+  width: 500px;
+  margin-left: 30%;
 `;
 
 const MiniContainer = styled.div`
