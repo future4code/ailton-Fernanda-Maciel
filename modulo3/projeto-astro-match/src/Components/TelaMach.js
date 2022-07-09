@@ -6,12 +6,14 @@ const Container = styled.div`
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  border: 1px solid lemonchiffon;
+  border: 3px solid lemonchiffon;
+  background-color: white;
   border-radius: 5px;
   margin: 5px;
 
   > h1 {
-    color: red;
+    font-family: "Permanent Marker", cursive;
+    color: black;
     text-align: center;
   }
 `;
@@ -51,7 +53,7 @@ export default function TelaMach() {
 
   return (
     <Container>
-      <h1>Lista ♥ Matchs</h1>
+      <h1>Lista 🔥 Matchs</h1>
       <div>
         {listaMatch.map((usuario) => {
           return (
@@ -67,7 +69,9 @@ export default function TelaMach() {
           );
         })}
 
-        <button onClick={apagarLista}> APAGAR </button>
+        <button onClick={apagarLista}>
+          <img src="https://img.icons8.com/emoji/20/000000/wastebasket-emoji.png" />
+        </button>
       </div>
     </Container>
   );

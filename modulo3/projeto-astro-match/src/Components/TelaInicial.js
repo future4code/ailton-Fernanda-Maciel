@@ -8,9 +8,11 @@ const MiniContainer = styled.div`
   border: 1px solid lemonchiffon;
   border-radius: 5px;
   margin: 5px;
+  background-color: white;
 
   > h1 {
-    color: red;
+    font-family: "Permanent Marker", cursive;
+    color: black;
     text-align: center;
   }
 `;
@@ -20,8 +22,9 @@ const MiniFooter = styled.footer`
   justify-content: space-around;
   margin: 5px;
   padding: 5px;
-  border: 1px solid lemonchiffon;
+  border: 3px solid lemonchiffon;
   border-radius: 5px;
+  background-color: #ff80ab;
 `;
 
 const CardPerfil = styled.div`
@@ -75,13 +78,13 @@ export default function TelaInicial() {
 
   return (
     <MiniContainer>
-      <h1>Astro♥Match</h1>
+      <h1>Astro 🔥 Match</h1>
       <CardPerfil key={perfil.id}>
         <h2>{perfil.name}</h2>
         <h2>{perfil.age} anos</h2>
         <img
-          width="300px"
-          height="300px"
+          width="300"
+          height="300"
           src={perfil.photo}
           alt={perfil.photo_alt}
         />
@@ -90,10 +93,10 @@ export default function TelaInicial() {
 
       <MiniFooter>
         <button onClick={PegarPerfil}>
-          <img src="https://img.icons8.com/emoji/50/000000/cross-mark-emoji.png" />
+          <img src="https://img.icons8.com/emoji/48/000000/broken-heart.png" />
         </button>
         <button onClick={SelecionarLike}>
-          <img src="https://img.icons8.com/cotton/50/000000/hearts--v2.png" />
+          <img src="https://img.icons8.com/emoji/48/000000/beating-heart.png" />
         </button>
       </MiniFooter>
     </MiniContainer>
