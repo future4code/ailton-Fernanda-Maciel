@@ -30,6 +30,14 @@ const MiniFooter = styled.footer`
 const CardPerfil = styled.div`
   text-align: center;
 `;
+
+const EfeitoBotao = styled.button`
+  :hover {
+    -webkit-transform: rotateZ(-30deg);
+    -ms-transform: rotateZ(-30deg);
+    transform: rotateZ(-30deg);
+  }
+`;
 export default function TelaInicial() {
   const [perfil, setPerfil] = useState({});
 
@@ -92,12 +100,12 @@ export default function TelaInicial() {
       </CardPerfil>
 
       <MiniFooter>
-        <button onClick={PegarPerfil}>
+        <EfeitoBotao onClick={PegarPerfil}>
           <img src="https://img.icons8.com/emoji/48/000000/broken-heart.png" />
-        </button>
-        <button onClick={SelecionarLike}>
+        </EfeitoBotao>
+        <EfeitoBotao onClick={SelecionarLike}>
           <img src="https://img.icons8.com/emoji/48/000000/beating-heart.png" />
-        </button>
+        </EfeitoBotao>
       </MiniFooter>
     </MiniContainer>
   );

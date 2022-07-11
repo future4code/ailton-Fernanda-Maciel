@@ -21,6 +21,15 @@ const MiniContainer = styled.div`
   margin: 5px;
   padding: 5px;
 `;
+
+const EfeitoButt = styled.button`
+  :hover {
+    -webkit-transform: rotateZ(-30deg);
+    -ms-transform: rotateZ(-30deg);
+    transform: rotateZ(-30deg);
+  }
+`;
+
 function App() {
   const [telaAtual, setTelaAtual] = useState("");
 
@@ -37,13 +46,13 @@ function App() {
   return (
     <ContainerHeader>
       <MiniContainer>
-        <button onClick={() => setTelaAtual("Inicial")}>
-          <img src="https://img.icons8.com/emoji/48/000000/smiling-face-with-horns.png" />
-        </button>
+        <EfeitoButt onClick={() => setTelaAtual("Inicial")}>
+          <img src="https://img.icons8.com/stickers/50/000000/--tinder.png" />
+        </EfeitoButt>
 
-        <button onClick={() => setTelaAtual("Match")}>
-          <img src="https://img.icons8.com/emoji/48/000000/kiss-mark.png" />
-        </button>
+        <EfeitoButt onClick={() => setTelaAtual("Match")}>
+          <img src="https://img.icons8.com/external-others-iconmarket/50/000000/external-love-valentines-day-others-iconmarket-61.png" />
+        </EfeitoButt>
       </MiniContainer>
 
       {MudaTela()}

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   border: 3px solid lemonchiffon;
@@ -17,7 +16,20 @@ const Container = styled.div`
     text-align: center;
   }
 `;
+const MiniContainer = styled.div`
+  align-items: center;
+  text-align: center;
+  border: 1px solid pink;
+  flex-direction: column;
+`;
 
+const EfeitoButton = styled.button`
+  :hover {
+    -webkit-transform: rotateZ(-30deg);
+    -ms-transform: rotateZ(-30deg);
+    transform: rotateZ(-30deg);
+  }
+`;
 export default function TelaMach() {
   const [listaMatch, setListaMatch] = useState([]);
 
@@ -57,7 +69,7 @@ export default function TelaMach() {
       <div>
         {listaMatch.map((usuario) => {
           return (
-            <div key={usuario.id}>
+            <MiniContainer key={usuario.id}>
               <img
                 height="70px"
                 width="70px"
@@ -65,13 +77,14 @@ export default function TelaMach() {
                 alt={usuario.photo_alt}
               />
               <span>{usuario.name}</span>
-            </div>
+            </MiniContainer>
           );
         })}
 
-        <button onClick={apagarLista}>
-          <img src="https://img.icons8.com/emoji/20/000000/wastebasket-emoji.png" />
-        </button>
+        <EfeitoButton onClick={apagarLista}>
+          <img src="https://img.icons8.com/emoji/20/000000/wastebasket-emoji.png" />{" "}
+          Apagar Matchs
+        </EfeitoButton>
       </div>
     </Container>
   );
