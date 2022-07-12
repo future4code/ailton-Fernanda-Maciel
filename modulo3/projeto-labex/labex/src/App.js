@@ -1,9 +1,10 @@
 import React from "react";
+import { Router } from "./routes/Router";
 
 function App() {
   return (
     <div>
-      <h1>Labex</h1>
+      <Router />
     </div>
   );
 }
