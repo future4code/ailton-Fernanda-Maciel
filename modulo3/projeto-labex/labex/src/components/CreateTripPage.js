@@ -1,9 +1,27 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import logo from "./img/logo.png";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+`;
+
+const Formulario = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+`;
 
 function CreateTripPage() {
   const [tripName, setTripName] = useState("");
   const [planeta, setPlaneta] = useState([]);
+  const [data, setData] = useState([]);
+  const [descricao, setDescricao] = useState("");
+  const [duracaoDias, setDuracaoDias] = useState("");
 
   const navigate = useNavigate();
 
@@ -19,10 +37,23 @@ function CreateTripPage() {
     setPlaneta(event.target.value);
   };
 
+  const onChangeData = (event) => {
+    setData(event.target.value);
+  };
+
+  const onChangedescricao = (event) => {
+    setDescricao(event.target.value);
+  };
+
+  const onChangeDuracaoDias = (event) => {
+    setDuracaoDias(event.target.value);
+  };
+
   return (
-    <div>
+    <Container>
+      <img width="300px" height="300px" src={logo} alt={"logo"} />
       <h1>Criar Viagem</h1>
-      <form>
+      <Formulario>
         <input
           placeholder="nome"
           type="text"
@@ -54,7 +85,8 @@ function CreateTripPage() {
           name="date"
           required=""
           min="2022-07-13"
-          value=""
+          value={data}
+          onChange={onChangeData}
         />
         <input
           placeholder="Descrição"
@@ -62,23 +94,25 @@ function CreateTripPage() {
           required=""
           pattern="^.{30,}$"
           title="O nome deve ter no mínimo 30 caracteres"
-          value=""
+          value={descricao}
+          onChange={onChangedescricao}
         />
         <input
           placeholder="Duração em dias"
           type="number"
           name="durationInDays"
           required=""
-          min="50"
-          value=""
+          min="0"
+          value={duracaoDias}
+          onChange={onChangeDuracaoDias}
         ></input>
-      </form>
+      </Formulario>
 
       <div>
         <button onClick={goBack}>Voltar</button>
         <button>Criar</button>
       </div>
-    </div>
+    </Container>
   );
 }
 

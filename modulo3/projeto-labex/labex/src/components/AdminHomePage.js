@@ -7,9 +7,11 @@ const ContainerAdm = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid white;
   text-align: center;
-  background-color: white;
+
+  > h1 {
+    color: white;
+  }
 `;
 
 function AdminHomePage() {
@@ -24,10 +26,9 @@ function AdminHomePage() {
 
   return (
     <ContainerAdm>
-      <header>
-        <h1>Painel Administrativo </h1>
-        <img width="150px" height="150px" src={logo2} alt={"logo2"} />
-      </header>
+      <h1>Painel Administrativo </h1>
+      <img width="200px" height="200px" src={logo2} alt={"logo2"} />
+
       <div>
         {" "}
         <button onClick={goBack}>Voltar</button>
