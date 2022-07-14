@@ -18,10 +18,10 @@ const Formulario = styled.form`
 
 function CreateTripPage() {
   const [tripName, setTripName] = useState("");
-  const [planeta, setPlaneta] = useState([]);
-  const [data, setData] = useState([]);
+  const [planeta, setPlaneta] = useState("");
+  const [data, setData] = useState("");
   const [descricao, setDescricao] = useState("");
-  const [duracaoDias, setDuracaoDias] = useState("");
+  const [duracaoDias, setDuracaoDias] = useState(0);
 
   const navigate = useNavigate();
 
@@ -49,35 +49,58 @@ function CreateTripPage() {
     setDuracaoDias(event.target.value);
   };
 
+  const criarViagem = (event) => {
+    event.preventDefault();
+
+    console.log(tripName, planeta, data, descricao, duracaoDias);
+  };
+
   return (
     <Container>
       <img width="300px" height="300px" src={logo} alt={"logo"} />
       <h1>Criar Viagem</h1>
-      <Formulario>
+      <Formulario onSubmit={criarViagem}>
         <input
           placeholder="nome"
           type="text"
           value={tripName}
           onChange={onChangeNomeViagem}
+          required
         />
-        <select placeholder="Planeta" name="planet" required="">
-          <option
-            onChange={onChangePlaneta}
-            value={planeta}
-            disabled=""
-            selected=""
-          >
-            Escolha um Planeta
+        <select
+          placeholder="Planeta"
+          name="planet"
+          required
+          onChange={(e) => setPlaneta(e.target.value)}
+        >
+          <option>Escolha um Planeta</option>
+          <option value="mercurio" selected={planeta === "mercurio"}>
+            Mercúrio
           </option>
-          <option value={planeta}>Mercúrio</option>
-          <option value={planeta}>Vênus</option>
-          <option value={planeta}>Terra</option>
-          <option value={planeta}>Marte</option>
-          <option value={planeta}>Jupiter</option>
-          <option value={planeta}>Saturno</option>
-          <option value={planeta}>Urano</option>
-          <option value={planeta}>Netuno</option>
-          <option value={planeta}>Plutão</option>
+          <option value="venus" selected={planeta === "venus"}>
+            Vênus
+          </option>
+          <option value="terra" selected={planeta === "terra"}>
+            Terra
+          </option>
+          <option value="marte" selected={planeta === "marte"}>
+            Marte
+          </option>
+          <option value="jupiter" selected={planeta === "jupiter"}>
+            Jupiter
+          </option>
+          <option value="saturno" selected={planeta === "saturno"}>
+            Saturno
+          </option>
+          <option value="urano" selected={planeta === "urano"}>
+            Urano
+          </option>
+          <option value="netuno" selected={planeta === "netuno"}>
+            Netuno
+          </option>
+          <option value="plutao" selected={planeta === "plutao"}>
+            Plutão
+          </option>
         </select>
         <input
           placeholder="Data"
@@ -106,11 +129,11 @@ function CreateTripPage() {
           value={duracaoDias}
           onChange={onChangeDuracaoDias}
         ></input>
+        <button>Criar</button>
       </Formulario>
 
       <div>
         <button onClick={goBack}>Voltar</button>
-        <button>Criar</button>
       </div>
     </Container>
   );

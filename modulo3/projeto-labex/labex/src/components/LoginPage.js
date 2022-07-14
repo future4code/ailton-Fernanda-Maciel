@@ -52,7 +52,7 @@ function LoginPage() {
       .then((response) => {
         console.log(response.data.token);
         localStorage.setItem("token", response.data.token);
-        navigate("/tripDetails");
+        navigate("/admin");
       })
       .catch((err) => {
         console.log(err.response);
@@ -68,12 +68,14 @@ function LoginPage() {
         type="email"
         value={email}
         onChange={onChangeEmail}
+        required
       />
       <input
         placeholder="senha"
         type="password"
         value={senha}
         onChange={onChangeSenha}
+        required
       />
       <div>
         <button onClick={GoBack}>Voltar</button>

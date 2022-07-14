@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import logo2 from "./img/logo2.png";
 
 function ApplicationFormPage() {
   const navigate = useNavigate();
@@ -10,11 +11,9 @@ function ApplicationFormPage() {
 
   return (
     <div>
-      <h1>ApplicationFormPage </h1>
-      <p>
-        → Para o usuário se candidatar à viagens, página que vai ter o
-        formulário de inscrição
-      </p>
+      <img width="200 px" height="200px" src={logo2} alt={"logo2"} />
+      <h1>Inscreva-se para uma viagem</h1>
+
       <button onClick={goBack}>Voltar</button>
       <button>Enviar</button>
     </div>
