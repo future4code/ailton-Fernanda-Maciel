@@ -21,7 +21,7 @@ const MiniContainer = styled.div`
 
 const BotaoHome = styled.button`
   :hover {
-    background-color: #8a2be2;
+    background-color: blueviolet;
     color: white;
   }
 `;

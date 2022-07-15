@@ -17,6 +17,20 @@ const Container = styled.div`
   }
 `;
 
+const BotaoBonito = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  > button {
+    font-size: 15px;
+
+    :hover {
+      background-color: blueviolet;
+      color: white;
+    }
+  }
+`;
+
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -77,10 +91,10 @@ function LoginPage() {
         onChange={onChangeSenha}
         required
       />
-      <div>
+      <BotaoBonito>
         <button onClick={GoBack}>Voltar</button>
         <button onClick={enviarLogin}>Entrar</button>
-      </div>
+      </BotaoBonito>
     </Container>
   );
 }

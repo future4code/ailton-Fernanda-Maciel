@@ -14,6 +14,20 @@ const ContainerAdm = styled.header`
   }
 `;
 
+const BotaoBonito = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  > button {
+    font-size: 15px;
+
+    :hover {
+      background-color: blueviolet;
+      color: white;
+    }
+  }
+`;
+
 function AdminHomePage() {
   const navigate = useNavigate();
 
@@ -29,12 +43,12 @@ function AdminHomePage() {
       <h1>Painel Administrativo </h1>
       <img width="200px" height="200px" src={logo2} alt={"logo2"} />
 
-      <div>
+      <BotaoBonito>
         {" "}
         <button onClick={goBack}>Voltar</button>
         <button onClick={createTrip}>Criar Viagem </button>
         <button>Logout </button>
-      </div>
+      </BotaoBonito>
     </ContainerAdm>
   );
 }

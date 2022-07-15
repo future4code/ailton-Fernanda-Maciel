@@ -18,7 +18,7 @@ const CardTrips = styled.div`
   background-color: white;
 `;
 
-const BotaoBonito = styled.div`
+const BotaoBonito = styled.header`
   display: flex;
   justify-content: space-between;
 
@@ -27,6 +27,7 @@ const BotaoBonito = styled.div`
 
     :hover {
       background-color: blueviolet;
+      color: white;
     }
   }
 `;
@@ -60,6 +61,10 @@ function ListTripsPage() {
 
   return (
     <Container>
+      <BotaoBonito>
+        <button onClick={goToHomePage}>Voltar</button>
+        <button onClick={GoToApplication}>Inscreva-se</button>
+      </BotaoBonito>
       <h1>Lista de Viagens </h1>
 
       {getTripsList.map((trips) => {
@@ -73,10 +78,6 @@ function ListTripsPage() {
           </CardTrips>
         );
       })}
-      <BotaoBonito>
-        <button onClick={goToHomePage}>Voltar</button>
-        <button onClick={GoToApplication}>Inscreva-se</button>
-      </BotaoBonito>
     </Container>
   );
 }

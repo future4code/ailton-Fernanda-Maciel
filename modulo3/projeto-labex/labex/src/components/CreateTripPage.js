@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -8,12 +9,15 @@ const Container = styled.div`
   flex-direction: column;
   text-align: center;
   align-items: center;
+  > h1 {
+    color: white;
+  }
 `;
 
 const Formulario = styled.form`
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 300px;
 `;
 
 function CreateTripPage() {
@@ -53,6 +57,27 @@ function CreateTripPage() {
     event.preventDefault();
 
     console.log(tripName, planeta, data, descricao, duracaoDias);
+  };
+
+  const CreatTrips = () => {
+    const body = {
+      name: tripName,
+      planet: planeta,
+      date: data,
+      description: descricao,
+      durationInDays: duracaoDias,
+    };
+    axios
+      .post(
+        "https://us-central1-labenu-apis.cloudfunctions.net/labeX/fernanda-maciel/trips",
+        body
+      )
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log("erro", err);
+      });
   };
 
   return (
@@ -129,7 +154,7 @@ function CreateTripPage() {
           value={duracaoDias}
           onChange={onChangeDuracaoDias}
         ></input>
-        <button>Criar</button>
+        <button onClick={CreatTrips}>Criar</button>
       </Formulario>
 
       <div>
