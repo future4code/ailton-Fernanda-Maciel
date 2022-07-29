@@ -10,11 +10,13 @@ const PostContainer = styled.div`
   border: 1px solid gray;
   width: 300px;
   margin-bottom: 10px;
+  background-color: #ffb6c1;
 `;
 
 const PostHeader = styled.div`
   height: 40px;
   display: flex;
+
   align-items: center;
   padding-left: 10px;
 `;
