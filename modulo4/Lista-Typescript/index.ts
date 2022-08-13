@@ -9,32 +9,59 @@
 // );
 
 // // exercicio 2
-// const nome = "Fernanda Desenvolvedora";
-// function pessoa(nome: string) {
-//   return nome;
+
+// function soma(a: number, b: number) {
+//   return a + b;
 // }
-// console.log(nome);
+// console.log(soma(12, 35));
 
 // // exercicio 3
 
-type Movies = {
-  name: string;
-  ano: string;
-  genero: string;
-};
+// enum GeneroMovies {
+//   ACAO = "ação",
+//   DRAMA = "drama",
+//   COMEDIA = "comédia",
+//   ROMANCE = "romance",
+//   TERROR = "terror",
+// }
 
-enum GeneroMovies {
-  ACAO = "ação",
-  DRAMA = "drama",
-  COMEDIA = "comédia",
-  ROMANCE = "romance",
-  TERROR = "terror",
+// type Movies = {
+//   name: string;
+//   ano: string;
+//   genero: string;
+//   pontuacao: string;
+// };
+
+// const filmes = {
+//   name: " Continencia do amor",
+//   ano: "13/07/2022",
+//   genero: GeneroMovies.ROMANCE,
+// };
+// console.log(filmes);
+
+// // exercicio 4
+
+type funcionarios = {
+  nome: string;
+  salario: number;
+  setor: string;
+  presencial: boolean;
+};
+enum Setor {
+  MARKETING = "marketing",
+  VENDAS = "vendas",
+  FINANCEIRO = "financeiro",
 }
 
-const filmes = {
-  name: " Continencia do amor",
-  ano: "13/07/2022",
-  genero: GeneroMovies.ROMANCE,
-};
-
-console.table(filmes);
+const listaFuncionarios = [
+  { nome: "Marcos", salário: 2500, setor: Setor.MARKETING, presencial: true },
+  { nome: "Maria", salário: 1500, setor: Setor.VENDAS, presencial: false },
+  { nome: "Salete", salário: 2200, setor: Setor.FINANCEIRO, presencial: true },
+  { nome: "João", salário: 2800, setor: Setor.MARKETING, presencial: false },
+  { nome: "Josué", salário: 5500, setor: Setor.FINANCEIRO, presencial: true },
+  { nome: "Natalia", salário: 4700, setor: Setor.VENDAS, presencial: true },
+  { nome: "Paola", salário: 3500, setor: Setor.MARKETING, presencial: true },
+].filter((itens) => {
+  return itens.setor === "marketing" && itens.presencial === true;
+});
+console.table(listaFuncionarios);
