@@ -25,25 +25,34 @@
 //   TERROR = "terror",
 // }
 
-// type Movies = {
+// type movies = {
 //   name: string;
 //   ano: string;
 //   genero: string;
-//   pontuacao: string;
+//   pontuacao?: number;
 // };
 
-// const filmes = {
+// const filmes: movies = {
 //   name: " Continencia do amor",
 //   ano: "13/07/2022",
 //   genero: GeneroMovies.ROMANCE,
+//   pontuacao: 10,
 // };
-// console.log(filmes);
+
+// const filme1: movies = {
+//   name: "bom dia, verônica",
+//   ano: "27/07/2020",
+//   genero: GeneroMovies.ACAO,
+// };
+
+// const filme: movies[] = [filmes, filme1];
+// console.table(filme);
 
 // // exercicio 4
 
-type funcionarios = {
+type Funcionarios = {
   nome: string;
-  salario: number;
+  salário: number;
   setor: string;
   presencial: boolean;
 };
@@ -53,7 +62,7 @@ enum Setor {
   FINANCEIRO = "financeiro",
 }
 
-const listaFuncionarios = [
+const listaFuncionarios: Funcionarios[] = [
   { nome: "Marcos", salário: 2500, setor: Setor.MARKETING, presencial: true },
   { nome: "Maria", salário: 1500, setor: Setor.VENDAS, presencial: false },
   { nome: "Salete", salário: 2200, setor: Setor.FINANCEIRO, presencial: true },
@@ -64,4 +73,25 @@ const listaFuncionarios = [
 ].filter((itens) => {
   return itens.setor === "marketing" && itens.presencial === true;
 });
+
 console.table(listaFuncionarios);
+
+/// ** EXERCICIO 5 *** ///
+
+// type List = {
+//   name: string;
+//   email: string;
+//   role: string;
+// };
+
+// const list = [
+//   { name: "Rogério", email: "roger@email.com", role: "user" },
+//   { name: "Ademir", email: "ademir@email.com", role: "admin" },
+//   { name: "Aline", email: "aline@email.com", role: "user" },
+//   { name: "Jéssica", email: "jessica@email.com", role: "user" },
+//   { name: "Adilson", email: "adilson@email.com", role: "user" },
+//   { name: "Carina", email: "carina@email.com", role: "admin" },
+// ].filter((item) => {
+//   return item.email && item.role === "admin";
+// });
+// console.table(list);
