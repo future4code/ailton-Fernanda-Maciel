@@ -1,0 +1,13 @@
+{
+  "name": "exercicio3",
+  "version": "1.0.0",
+  "description": "exercicio 3",
+  "main": "exercicio3.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node exercicio3.js"
+  },
+  "author": "Fernanda Tiyomi",
+  "license": "ISC"
+}

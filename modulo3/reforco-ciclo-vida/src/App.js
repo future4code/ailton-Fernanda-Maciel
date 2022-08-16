@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "./styles.css";
+import Delete from "./components/Delete";
 
 const TarefaList = styled.ul`
   padding: 0;
@@ -54,14 +55,26 @@ function App() {
   const selectTarefa = (id) => {
     const novoArray = tarefas.map((tarefa) => {
       if (tarefa.id === id) {
-        tarefas.completa = !tarefas.completa;
+        tarefa.completa = !tarefa.completa;
       }
       return tarefa;
     });
     setTarefas(novoArray);
+    console.log(tarefas.completa);
   };
 
-  const onChangeFilter = (event) => {};
+  const deletarTarefa = (id) => {
+    const deletar = tarefas.map((item) => {
+      if (item.id === id) {
+        item.id = id;
+      }
+      return item;
+    });
+    setTarefas(deletar);
+  };
+  const onChangeFilter = (event) => {
+    setFiltro(event.target.value);
+  };
 
   const listaFiltrada = tarefas.filter((tarefa) => {
     switch (filtro) {
@@ -99,6 +112,7 @@ function App() {
               onClick={() => selectTarefa(tarefa.id)}
             >
               {tarefa.texto}
+              <Delete deletarTarefa={deletarTarefa} />
             </Tarefa>
           );
         })}

@@ -1,0 +1,14 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "aula inicial de node",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "fernanda": "node index.js Fernanda 36 43"
+  },
+  "author": "Fernanda Tiyomi",
+  "license": "ISC"
+}
