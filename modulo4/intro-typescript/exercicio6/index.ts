@@ -1,5 +1,6 @@
 function recebeDoisNumeros(num1: number, num2: number): void {
   const soma = num1 + num2;
+ 
   //   const sub = num1 - num2;
   //   const multi = num1 * num2;
 
@@ -14,4 +15,4 @@ function recebeDoisNumeros(num1: number, num2: number): void {
   //     menorNumero = num1;
   //   }
 }
-console.log(recebeDoisNumeros(10, 2));
+console.log(recebeDoisNumeros(10 ,2));

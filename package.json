@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "typescript": "^4.7.4"
   }
 }
