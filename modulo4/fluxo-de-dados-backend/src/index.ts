@@ -86,6 +86,22 @@ app.put("/editarProduto/:id", (request, response) => {
   }
 });
 
+//exercicio 6
+
+app.delete("/deletarproduto/:nome", (request, response) => {
+  try {
+    const nome = request.params.nome;
+    const deleteProduto: Produtos[] = produtos.filter((item) => {
+      return item.name !== nome;
+    });
+    response.send(deleteProduto);
+  } catch (error: any) {
+    response
+      .status(response.statusCode || 500)
+      .send({ message: error.message });
+  }
+});
+
 app.listen(3003, () => {
   console.log("Server is running in http://localhost:3003");
 });
