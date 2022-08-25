@@ -48,6 +48,30 @@ app.get("/quantidade", async (request, response) => {
   response.send(resultado);
 });
 
+// exercicio 2
+// a) *Uma função que receba um salário e um id e realiza a atualização do salário do ator em questão*
+
+const atualizaSalario = async (id: string, salary: number): Promise<any> => {
+  await connection("Actor")
+    .update({
+      salary: salary,
+    })
+    .where("id", id);
+};
+
+// b) Uma função que receba um id e delete um ator da tabela
+const deleteActor = async (id: string): Promise<void> => {
+  await connection("Actor").delete().where("id", id);
+};
+// c) Uma função que receba um `gender` e devolva a média dos salários de atrizes ou atores desse `gender`*
+const avgSalary = async (gender: string): Promise<any> => {
+  const result = await connection("Actor")
+    .avg("salary as average")
+    .where({ gender });
+
+  return result[0].average;
+};
+
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
     const address = server.address() as AddressInfo;
