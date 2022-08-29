@@ -117,13 +117,28 @@ app.delete("/deletarTarefa/:title", (request, response) => {
 
 // exercicio 8
 
-app.get("/retornaTarefas/:title", (request, response) => {
-  const titulo = request.params.title;
+app.get("/retornaTarefas", (request, response) => {
+  try {
+    const { title } = request.body;
+    if (!title) {
+      response.statusCode = 401;
+      throw new Error("Não pode enviar tarefa vazia ");
+    }
+    const achouTarefa: Afazeres[] = afazeres.filter((tarefa) => {
+      return tarefa.title.includes(title);
+    });
 
-  const retornaTarefa: Afazeres[] = afazeres.filter((tarefa) => {
-    return tarefa.title.includes(titulo);
-  });
-  response.send(retornaTarefa);
+    if (!achouTarefa.length) {
+      response.statusCode = 404;
+      throw new Error(`não foi possivel achar a tarefa com o nome de ${title}`);
+    }
+
+    response.send(achouTarefa);
+  } catch (error: any) {
+    response
+      .status(response.statusCode || 500)
+      .send({ message: error.message });
+  }
 });
 
 app.listen(3003, () => {
