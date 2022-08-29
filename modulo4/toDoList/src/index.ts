@@ -35,7 +35,7 @@ const user: User[] = [];
 // O seu código deve validar se os três campos estão completos (ou seja se não foram enviados ou se não estão vazios)
 // e retornar um erro caso não estejam válidos.
 
-app.post("/user", (request, response) => {
+app.post("/user", async (request, response) => {
   let errorCode: number = 400;
   try {
     const { id, name, nickname, email } = request.body;
@@ -43,38 +43,87 @@ app.post("/user", (request, response) => {
       throw new Error("Não aceitamamos campos vazios.");
     }
 
-    const newUser: User = {
-      id,
-      name,
-      nickname,
-      email,
-    };
-    user.push(newUser);
+    await connection.raw(
+      `INSERT INTO users ( name, nickname, email)
+        
+        VALUES ("${id}", "${name}", "${nickname}", "${email}")`
+    );
     response.status(200).send({ message: "Usuario criado com sucesso!!" });
+    console.log(name);
   } catch (error: any) {
     response.status(errorCode).send({ message: error.message });
   }
 });
 
 // 2. Pegar usuário pelo id
-app.get("/user/:id", (request, response) => {
-  let errorCode: number = 400;
+app.get("/user/:id", async (request, response) => {
   try {
-    const id: number = Number(request.params.id);
-    if (!id) {
-      errorCode = 402;
-      throw new Error("Valor de id invalido.");
+    const findUser = await connection("users").select("id");
+    if (!findUser.length) {
+      response.statusCode = 404;
+      throw new Error("Nenhum usuario cadastrado.");
     }
-    const usuario = user.find((users) => {
-      return users.id === id;
-    });
-    if (!usuario) {
-      errorCode = 404;
-      throw new Error("Usuario não encontrado");
-    }
-    response.status(200).send(usuario);
+    response.status(200).send(findUser);
+    console.log(findUser);
   } catch (error: any) {
-    response.status(errorCode).send({ message: error.message });
+    response.status(400 || 500).send({ message: error.message });
+  }
+});
+
+// exercicio 3
+// Editar usuário
+
+app.put("/user/:edit/:id", async (request, response) => {
+  try {
+    const { id } = request.params;
+    const { name, nickname, email } = request.body;
+    if (!name || !nickname || !email) {
+      response.statusCode = 400;
+      throw new Error("Nenhum usuario cadastrado.");
+    }
+  } catch (error: any) {
+    if (response.statusCode === 200) {
+      response.status(500).send(error.message);
+    } else {
+      response.status(response.statusCode).send(error.message);
+    }
+  }
+});
+
+// exercicio 4
+// Criar tarefa
+
+app.post("/task", (request, response) => {
+  try {
+    const { title, description, limit_date } = request.body;
+
+    if (!title || !description || !limit_date) {
+      response.statusCode = 400;
+      throw new Error("preencha todos os campos");
+    }
+  } catch (error: any) {
+    if (response.statusCode === 200) {
+      response.status(500).send(error.message);
+    } else {
+      response.status(response.statusCode).send(error.message);
+    }
+  }
+});
+
+// exercicio 5
+app.get("/task/:id", (request, response) => {
+  try {
+    const { id } = request.params;
+    if (!id) {
+      response.statusCode = 400;
+      throw new Error("Preencha o id");
+    }
+  } catch (error: any) {
+    if (response.statusCode === 200) {
+      response.status(500).send(error.message);
+    } else {
+      response.status(response.statusCode).send(error.message);
+    }
   }
 });
 
