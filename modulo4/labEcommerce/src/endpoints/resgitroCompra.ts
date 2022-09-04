@@ -1,5 +1,6 @@
 import { Request, response, Response } from "express";
-import { comprasUsuario, usuariosId } from "../data/comprasUsuario";
+import { isThisTypeNode } from "typescript";
+import { comprasUsuario, produtosId, usuariosId } from "../data/comprasUsuario";
 import { produtosEntrada } from "../data/produtosEntrada";
 import { Compras } from "../types/compras";
 
@@ -11,12 +12,28 @@ export async function registroCompra(req: Request, res: Response) {
       throw new Error("Favor preencher todos os campos");
     }
 
-    const user = await usuariosId(user_id);
+    const confirmacaoUsuario = await usuariosId(user_id);
 
-    if (!user) {
+    if (!confirmacaoUsuario) {
       res.statusCode = 404;
-      throw new Error("Usuario não encontrado");
+      throw new Error(`Usuario com o id ${user_id} não encontrado`);
     }
+
+    const confirmacaoProduto = await produtosId(product_id);
+
+    if (!confirmacaoProduto) {
+      res.statusCode = 404;
+      throw new Error(`Produto com o id ${product_id} não encontrado`);
+    }
+
+    const valorTotal = confirmacaoProduto.price * quantity;
+
+    // const user = await usuariosId(user_id);
+
+    // if (!user) {
+    //   res.statusCode = 404;
+    //   throw new Error("Usuario não encontrado");
+    // }
 
     const compras: Compras = {
       id: Date.now().toString(),
@@ -31,6 +48,6 @@ export async function registroCompra(req: Request, res: Response) {
 
     res.status(200).send("Compra registrada com sucesso!!! ");
   } catch (error: any) {
-    res.status(res.statusCode || 500).send({ message: error.message });
+    res.status(500).send({ message: error.message });
   }
 }
