@@ -23,3 +23,13 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3003/products
+
+###
+POST http://localhost:3003/purchases
+Content-Type: application/json
+{
+"user_id":"123",
+"product_id": "123",
+"quantity": 5
+
+}
