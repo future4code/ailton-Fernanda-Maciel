@@ -3,6 +3,7 @@ import { isThisTypeNode } from "typescript";
 import { comprasUsuario, produtosId, usuariosId } from "../data/comprasUsuario";
 import { produtosEntrada } from "../data/produtosEntrada";
 import { Compras } from "../types/compras";
+import { produtosComprados } from "./produtosComprados";
 
 export async function registroCompra(req: Request, res: Response) {
   try {
@@ -28,25 +29,21 @@ export async function registroCompra(req: Request, res: Response) {
 
     const valorTotal = confirmacaoProduto.price * quantity;
 
-    // const user = await usuariosId(user_id);
-
-    // if (!user) {
-    //   res.statusCode = 404;
-    //   throw new Error("Usuario não encontrado");
-    // }
-
     const compras: Compras = {
       id: Date.now().toString(),
       user_id,
       product_id,
       quantity,
-      total_price,
+      total_price: confirmacaoProduto.price * quantity,
     };
     console.log(compras);
 
     await comprasUsuario(compras);
 
-    res.status(200).send("Compra registrada com sucesso!!! ");
+    const resposta = await produtosComprados(compras);
+    console.log(resposta);
+
+    res.status(201).send({ message: resposta });
   } catch (error: any) {
     res.status(500).send({ message: error.message });
   }

@@ -2,9 +2,9 @@ POST http://localhost:3003/users
 Content-Type: application/json
 
 {
-"name": "perola",
-"email": "perola@example.com",
-"password": "123456"
+"name": "theo",
+"email": "theo@example.com",
+"password": "888899"
 
 }
 ###
@@ -15,8 +15,8 @@ POST http://localhost:3003/products
 Content-Type: application/json
 
 {
-    "name": "Calça prada efeito lipo",
-    "price": "119.90",
+    "name": "pote",
+    "price": "10",
     "image_url": "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
 
 }
@@ -29,8 +29,12 @@ POST http://localhost:3003/purchases
 Content-Type: application/json
 {
     
-"user_id":"1662077643675",
-"product_id": "1662139967042",
-"quantity":10
+"user_id":"1662262851985",
+"product_id": "1662141852323",
+"quantity":2
 
 }
+
+
+###
+GET http://localhost:3003/users/1662262851985/purchases
