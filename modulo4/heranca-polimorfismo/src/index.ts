@@ -175,3 +175,33 @@ const industria = new Industry(3, "456");
 console.log(industria);
 
 //
+//Exercício 4
+class ResidentialClient extends Residence implements Client {
+  constructor(
+    public name: string,
+    public registrationNumber: number,
+    public consumedEnergy: number,
+    private cpf: string,
+    residentsQuantity: number,
+    cep: string
+  ) {
+    super(residentsQuantity, cep);
+  }
+
+  public getCpf(): string {
+    return this.cpf;
+  }
+
+  public calculateBill(): number {
+    return this.consumedEnergy * 0.75;
+  }
+}
+const residencial = new ResidentialClient(
+  "Residencial Flores",
+  3,
+  100,
+  "050280409-23",
+  4,
+  "83324-020"
+);
+console.log(residencial);
