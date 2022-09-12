@@ -1,0 +1,40 @@
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+"name": "theo",
+"email": "theo@example.com",
+"password": "888899"
+
+}
+###
+GET http://localhost:3003/users
+
+###
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "pote",
+    "price": "10",
+    "image_url": "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
+
+}
+
+###
+GET http://localhost:3003/products
+
+###
+POST http://localhost:3003/purchases
+Content-Type: application/json
+{
+    
+"user_id":"1662262851985",
+"product_id": "1662141852323",
+"quantity":2
+
+}
+
+
+###
+GET http://localhost:3003/users/1662262851985/purchases
