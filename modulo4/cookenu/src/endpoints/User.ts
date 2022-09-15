@@ -44,6 +44,7 @@ export class UserEndpoint {
       const userData = new UserDatabase();
 
       const emailExist = await userData.getUserByEmail(email);
+      console.log(emailExist);
 
       if (!emailExist) {
         throw new Error("As informações estão incorretas");
@@ -55,17 +56,43 @@ export class UserEndpoint {
       );
 
       if (!correctPassword) {
-        throw new Error("As informações estão incorretas");
+        throw new Error("A senha esta incorreta");
       }
 
       const token = new Authenticator().generate({
         id: emailExist.getId(),
       });
 
-      res.status(200).send({ token });
+      res.status(200).send({ message: "usuario logado com sucesso", token });
     } catch (error: any) {
       res.status(error.StatusCode || 500).send({ message: error.message });
       console.log(error);
+    }
+  }
+
+  async getProfile(req: Request, res: Response) {
+    try {
+      const token = req.headers.authorization;
+
+      const authenticator = new Authenticator();
+
+      if (!token) {
+        throw new Error("É necessário passar a autorização ");
+      }
+
+      const tokenData = authenticator.getTokenData(token);
+
+      if (!tokenData.id) {
+        throw new Error("Necessario passar id!!");
+      }
+
+      const userDataBase = new UserDatabase();
+
+      const user = await userDataBase.pegarUsuario(tokenData.id);
+
+      res.status(200).send({ message: user });
+    } catch (error: any) {
+      res.status(400).send({ message: error.message });
     }
   }
 }

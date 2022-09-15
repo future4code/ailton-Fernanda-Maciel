@@ -20,15 +20,36 @@ export class UserDatabase extends BaseDatabase {
       .from("user_cookenu")
       .where({ email: email });
 
+    console.log(email);
+
     if (!result.length) {
       return undefined;
     }
-    console.log(result);
+
     return new User(
       result[0].id,
       result[0].name,
       result[0].email,
       result[0].password
     );
+  }
+
+  async pegarUsuario(userId: string) {
+    const result = await this.getConnection()
+      .select("*")
+      .from("user_cookenu")
+      .where({ id: userId });
+
+    if (!result.length) {
+      return undefined;
+    }
+    console.log(result);
+    const { id, name, email } = result[0];
+
+    return {
+      id,
+      name,
+      email,
+    };
   }
 }
