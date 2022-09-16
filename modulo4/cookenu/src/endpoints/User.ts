@@ -95,4 +95,29 @@ export class UserEndpoint {
       res.status(400).send({ message: error.message });
     }
   }
+
+  async pegarOutroPerfil(req: Request, res: Response) {
+    try {
+      const id = req.params.id;
+
+      const authenticator = new Authenticator();
+
+      if (!id) {
+        throw new Error("Necessario passar id");
+      }
+
+      const tokenData = authenticator.getTokenData(id);
+      if (!tokenData) {
+        throw new Error("Necessario passar parametro");
+      }
+
+      const userDataBase = new UserDatabase();
+
+      const user = await userDataBase.getUser(tokenData.id);
+
+      res.status(200).send({ message: user });
+    } catch (error: any) {
+      res.status(400).send({ message: error.message });
+    }
+  }
 }

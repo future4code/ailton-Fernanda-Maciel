@@ -52,4 +52,19 @@ export class UserDatabase extends BaseDatabase {
       email,
     };
   }
+
+  async getUser(id1: string) {
+    const result = await this.getConnection()
+      .select("*")
+      .from("user_cookenu")
+      .where({ id: id1 });
+
+    if (!result.length) {
+      return undefined;
+    }
+
+    console.log(result);
+    const { id, name, email } = result[0];
+    return { id, name, email };
+  }
 }
