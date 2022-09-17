@@ -98,24 +98,17 @@ export class UserEndpoint {
 
   async pegarOutroPerfil(req: Request, res: Response) {
     try {
-      const id = req.params.id;
+      const token = req.headers.authorization;
+      const idOutraPessoa = req.params.id;
 
-      const authenticator = new Authenticator();
-
-      if (!id) {
-        throw new Error("Necessario passar id");
+      if (!token) {
+        throw new Error("É necessário passar a autorização ");
       }
 
-      const tokenData = authenticator.getTokenData(id);
-      if (!tokenData) {
-        throw new Error("Necessario passar parametro");
-      }
-
-      const userDataBase = new UserDatabase();
-
-      const user = await userDataBase.getUser(tokenData.id);
-
-      res.status(200).send({ message: user });
+      const userData = new UserDatabase();
+      const procurarPessoa = await userData.getUser(idOutraPessoa);
+      console.log(procurarPessoa);
+      res.status(200).send({ message: procurarPessoa });
     } catch (error: any) {
       res.status(400).send({ message: error.message });
     }
