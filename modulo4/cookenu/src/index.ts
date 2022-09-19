@@ -18,3 +18,6 @@ app.post("/recipe", recipe.create);
 app.get("/user/profile", user.getProfile);
 // pegar outro usuario
 app.get("/user/:id", user.pegarOutroPerfil);
+
+// pegar Receita por id
+app.get("/recipe/:id", recipe.pegarReceita);

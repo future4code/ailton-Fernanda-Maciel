@@ -22,4 +22,7 @@ export class Recipe {
   getUsuarioId() {
     return this.usuario_id;
   }
+  setData(data: any) {
+    this.data_criacao = data;
+  }
 }
