@@ -22,3 +22,6 @@ export class Product {
     return this.tags;
   };
 }
+export interface IProductsInputDTO {
+  name: string;
+}
