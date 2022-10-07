@@ -6,7 +6,6 @@ dotenv.config();
 export interface ITokenPayload {
   id: string;
   name: string;
-  tags: string[];
 }
 
 export class Authenticator {

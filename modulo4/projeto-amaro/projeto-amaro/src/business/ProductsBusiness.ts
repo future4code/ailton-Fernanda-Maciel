@@ -1,6 +1,10 @@
 import { ProductsDatabase } from "../database/ProductsDatabase";
-import { IProductsInputDTO, Product } from "../models/Products";
-import { Authenticator } from "../services/Authenticator";
+import {
+  IProductsInputDTO,
+  IProductsOutputDTO,
+  Product,
+} from "../models/Products";
+import { Authenticator, ITokenPayload } from "../services/Authenticator";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/IdGenerator";
 
@@ -27,5 +31,30 @@ export class ProductsBusiness {
 
     const id = this.idGenerator.generate();
     ///parei aqui
+
+    const produtos = new Product(id, name);
+    console.log(produtos);
+    //criar produtos e chamar no dataBase
+    await this.productsDatabase.createProducts(produtos);
+
+    // criar token
+
+    const payload: ITokenPayload = {
+      id: produtos.getId(),
+      name: produtos.getName(),
+    };
+
+    const token = this.authenticator.generateToken(payload);
+    console.log(token);
+
+    const response: IProductsOutputDTO = {
+      message: "Cadastro realizado com sucesso!!",
+      token,
+    };
+    return response;
+  };
+
+  public getProductName = (name: string) => {
+    //parei aqui
   };
 }

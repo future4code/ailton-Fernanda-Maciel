@@ -18,3 +18,4 @@ const productsController = new ProductsController(
 );
 
 productRouter.post("/products", productsController.insertProduct);
+productRouter.get("/products/:name", productsController.getProductName);

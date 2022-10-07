@@ -4,11 +4,11 @@ import { BaseDatabase } from "./BaseDatabase";
 export class ProductsDatabase extends BaseDatabase {
   public static TABLE_PRODUCTS = "Amaro_Products";
 
-  public productsDB = (product: Product): IProduct => {
+  public productDB = (product: Product): IProduct => {
     const productDB: IProduct = {
       id: product.getId(),
       name: product.getName(),
-      tags: product.getTags(),
+     
     };
     return productDB;
   };
@@ -20,5 +20,13 @@ export class ProductsDatabase extends BaseDatabase {
       .select()
       .where({ name });
     return result[0];
+  };
+
+  public createProducts = async (products: Product): Promise<void> => {
+    const productDB = this.productDB(products);
+
+    await BaseDatabase.connection(ProductsDatabase.TABLE_PRODUCTS).insert(
+      productDB
+    );
   };
 }

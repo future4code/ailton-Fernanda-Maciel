@@ -1,15 +1,10 @@
 export interface IProduct {
   id: string;
   name: string;
-  tags: string[];
 }
 
 export class Product {
-  constructor(
-    private id: string,
-    private name: string,
-    private tags: string[]
-  ) {}
+  constructor(private id: string, private name: string) {}
 
   public getId = () => {
     return this.id;
@@ -18,10 +13,13 @@ export class Product {
   public getName = () => {
     return this.name;
   };
-  public getTags = () => {
-    return this.tags;
-  };
 }
 export interface IProductsInputDTO {
+  id: string;
   name: string;
+}
+
+export interface IProductsOutputDTO {
+  message: string;
+  token: string;
 }
