@@ -1,0 +1,12 @@
+### Ping
+GET http://localhost:3003/ping
+
+###
+POST http://localhost:3003/insert/products
+Content-Type: application/json
+{
+
+"name": "Vestido florido longo",
+"tag":"verão"
+
+}
