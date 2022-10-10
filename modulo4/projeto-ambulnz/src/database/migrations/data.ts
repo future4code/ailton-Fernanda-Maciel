@@ -1,25 +1,109 @@
-import { IUserDB, USER_ROLES } from "../../models/User"
+import { IIngredientsDB, IPizzaDB, IPizzasIngredientsDB } from "../../models/Pizza";
 
-export const users: IUserDB[] = [
+// seeds
+
+export const pizzasSeed: IPizzaDB[] = [
     {
-        id: "101",
-        name: "Astrodev",
-        email: "astrodev@gmail.com",
-        password: "$2a$12$RBAWOHpUvGTE.MEeIohAzec9tlVqtNA/x2PMPt/Hrt0vI437cQdJC", // bananinha
-        role: USER_ROLES.ADMIN
+        "name": "Margherita",
+        "price": 5
     },
     {
-        id: "102",
-        name: "Fulano",
-        email: "fulano@gmail.com",
-        password: "$2a$12$PULtVNlAll87D6E8pR/0HO9vbzVDPaUMA89rc5cNmYoAAepbwmkcO", // qwerty00
-        role: USER_ROLES.NORMAL
+        "name": "Bufala",
+        "price": 6
     },
     {
-        id: "103",
-        name: "Ciclana",
-        email: "ciclana@gmail.com",
-        password: "$2a$12$LkWMqS3oPhP2iVMcZOVvWer9ahUPulxjB0EA4TWPxWaRuEEfYGu/i", // asdfg123
-        role: USER_ROLES.NORMAL
+        "name": "Romana",
+        "price": 5
+    },
+    {
+        "name": "Diavola",
+        "price": 7.5
+    },
+    {
+        "name": "Pizza Bianca",
+        "price": 5
+    }
+]
+
+export const ingredientsSeed: IIngredientsDB[] = [
+    {
+        name: "tomato"
+    },
+    {
+        name: "mozzarella"
+    },
+    {
+        name: "mozarella di bufala"
+    },
+    {
+        name: "anchovies"
+    },
+    {
+        name: "oregano"
+    },
+    {
+        name: "oil"
+    },
+    {
+        name: "spicy salami"
+    }
+]
+
+export const pizzasIngredientsSeed: IPizzasIngredientsDB[] = [
+    {
+        pizza_name: "Margherita",
+        ingredient_name: "tomato"
+    },
+    {
+        pizza_name: "Margherita",
+        ingredient_name: "mozzarella"
+    },
+    {
+        pizza_name: "Bufala",
+        ingredient_name: "tomato"
+    },
+    {
+        pizza_name: "Bufala",
+        ingredient_name: "mozarella di bufala"
+    },
+    {
+        pizza_name: "Romana",
+        ingredient_name: "tomato"
+    },
+    {
+        pizza_name: "Romana",
+        ingredient_name: "mozzarella"
+    },
+    {
+        pizza_name: "Romana",
+        ingredient_name: "anchovies"
+    },
+    {
+        pizza_name: "Romana",
+        ingredient_name: "oregano"
+    },
+    {
+        pizza_name: "Romana",
+        ingredient_name: "oil"
+    },
+    {
+        pizza_name: "Diavola",
+        ingredient_name: "tomato"
+    },
+    {
+        pizza_name: "Diavola",
+        ingredient_name: "mozzarella"
+    },
+    {
+        pizza_name: "Diavola",
+        ingredient_name: "spicy salami"
+    },
+    {
+        pizza_name: "Pizza Bianca",
+        ingredient_name: "mozzarella"
+    },
+    {
+        pizza_name: "Pizza Bianca",
+        ingredient_name: "oregano"
     }
 ]
