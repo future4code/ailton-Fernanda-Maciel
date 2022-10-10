@@ -7,9 +7,9 @@ export const ContainerDiv = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: auto;
+  margin: 5px;
 
-  background-color: white;
-
+  background-color: #eedd82;
   > div {
     position: relative;
     width: 100%;
@@ -28,7 +28,7 @@ export const ContainerDiv = styled.div`
       :hover {
         cursor: pointer;
         font-weight: bold;
-        background-color: lightgray;
+        background-color: red;
       }
     }
   }
@@ -40,7 +40,7 @@ function OrderSuccessPopup(props) {
   return (
     <ContainerDiv>
       <div>
-        <h2>Pedido realizado com sucesso!</h2>
+        <h2>Pedido realizado com sucesso! 🍕</h2>
         <h3>Resumo do pedido</h3>
         <p>Id do pedido: {order.id}</p>
         {order.pizzas.map((pizza) => (

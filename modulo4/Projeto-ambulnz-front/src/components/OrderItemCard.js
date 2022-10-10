@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
-export const ContainerLi = styled.li`
+export const ContainerLi = styled.div`
   display: flex;
 `;
 
+//botão do remover
 export const ContainerBotao = styled.div`
-  background-color: orange;
+  background-color: #ffd700;
   margin: 10px 5px;
   width: 70%;
   cursor: pointer;
   :hover {
     color: black;
-    background-color: white;
+    background-color: red;
+    font-weight: bold;
   }
 `;
 
@@ -30,7 +32,7 @@ function OrderItemCard(props) {
       </p>
 
       <ContainerBotao onClick={() => removeFromCart(pizza)}>
-        Remover item
+        Remover item 🍕
       </ContainerBotao>
     </ContainerLi>
   );
