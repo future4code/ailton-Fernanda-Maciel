@@ -3,7 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import { pingRouter } from "./router/pingRouter";
-import { productRouter } from "./router/ProductsRouter";
+
+import { productRouter } from "./router/ProductRouter";
 
 dotenv.config();
 
