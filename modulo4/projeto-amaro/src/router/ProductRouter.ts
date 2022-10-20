@@ -9,4 +9,4 @@ const productController = new ProductController(
   new ProductBusiness(new ProductDatabase())
 );
 
-productRouter.post("/products", productController.createProducts);
+productRouter.post("/populate", productController.createProducts);
