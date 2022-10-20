@@ -6,7 +6,8 @@
 
 body {
   font-family: sans-serif;
-  background-image: url("./img/pipoca2.jpg");
+  /* background-image: url("./img/pipoca2.jpg"); */
+  background-color: #e5e5e5;
 }
 
 .app {
